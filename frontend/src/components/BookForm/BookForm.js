@@ -19,7 +19,7 @@ const BookForm = () => {
         author: author,
         id: uuidv4(),
       };
-      console.log(addBook(book));
+      // console.log(addBook(book));
 
       dispatch(addBook(book));
       setTitle("");
