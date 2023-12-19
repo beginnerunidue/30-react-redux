@@ -18,7 +18,7 @@ const BookForm = () => {
     // console.log(randomIndex);
     const randomBook = booksData[randomIndex];
 
-    const randomBookWithID = createBookWithID(randomBook);
+    const randomBookWithID = createBookWithID(randomBook, "random");
     dispatch(addBook(randomBookWithID));
   };
 
@@ -27,7 +27,7 @@ const BookForm = () => {
     if (title && author) {
       // dispatch action
       // console.log(title, author);
-      const book = createBookWithID({ title: title, author: author });
+      const book = createBookWithID({ title: title, author: author }, "manual");
       // console.log(addBook(book));
 
       dispatch(addBook(book));
@@ -47,7 +47,7 @@ const BookForm = () => {
 
       // with optional chaining operator
       if (res?.data?.title && res?.data?.author) {
-        dispatch(addBook(createBookWithID(res.data)));
+        dispatch(addBook(createBookWithID(res.data, "API")));
       }
     } catch (error) {
       console.log("Error fetching random book", error);
